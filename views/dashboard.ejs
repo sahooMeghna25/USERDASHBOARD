@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/src/index.css" />
+    <style>
+      form {
+        max-width: 500px;
+        margin: auto;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+
+      button {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+
+      button:hover {
+        background-color: darkgreen;
+      }
+
+      .logout-btn {
+        background-color: red;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, <%= user.name %></h1>
+    <form method="POST" action="/dashboard/<%= user.id %>">
+      <label>Name:</label>
+      <input type="text" name="name" value="<%= user.name %>" required /><br />
+      <label>Email:</label>
+      <input
+        type="email"
+        name="email"
+        value="<%= user.email %>"
+        required
+      /><br />
+      <label>Phone:</label>
+      <input
+        type="text"
+        name="phone"
+        value="<%= user.phone %>"
+        required
+      /><br />
+      <label>Designation:</label>
+      <input
+        type="text"
+        name="designation"
+        value="<%= user.designation %>"
+        required
+      /><br />
+      <button type="submit">Save</button>
+      <a href="/logout" class="logout-btn"
+        ><button type="button">Logout</button></a
+      >
+    </form>
+  </body>
+</html>
