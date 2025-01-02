@@ -6,6 +6,7 @@ const bcrypt = require("bcryptjs");
 const path = require("path");
 const session = require("express-session");
 const MySQLStore = require("express-mysql-session")(session);
+const port = process.env.PORT || 8080;
 
 const app = express();
 
@@ -127,6 +128,6 @@ app.get("/logout", (req, res) => {
 app.use((req, res) => res.status(404).send("Page Not Found"));
 
 // Start server
-app.listen(8080, () => {
-  console.log("Server running on port 8080");
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
 });
