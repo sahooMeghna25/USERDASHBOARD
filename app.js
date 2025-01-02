@@ -46,7 +46,7 @@ app.get("/register", (req, res) => {
 
 app.post("/register", (req, res) => {
   const { name, email, phone, education, password, experience } = req.body;
-  const hashedPassword = bcrypt.hashSync(password, 8);
+  const hashedPassword = bcrypt.hashSync(password, 10);
 
   const sql =
     "INSERT INTO users_inf (name, email, phone, education, password,experience) VALUES (?, ?, ?, ?, ?,?)";
